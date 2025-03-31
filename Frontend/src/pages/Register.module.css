@@ -1,0 +1,184 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    font-family: "Poppins", serif;
+}
+
+.c1 {
+    width: 65%;
+    height: 100%;
+}
+
+.c2 {
+    width: 35%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.formDiv {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 50%;
+    height: 85%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.formDiv h1 {
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 2em;
+}
+
+.formHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.formHeader h4 {
+    font-size: 1.2em;
+}
+
+.formHeader a {
+    color: #1877F2;
+    font-size: 1.1em;
+    text-decoration: none;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.2em;
+}
+
+.inputGroup label {
+    color: #666666;
+    font-size: 0.8em;
+}
+
+.inputGroup input {
+    width: 90%;
+    height: 4vh;
+    border: 2px solid #666666;
+    border-radius: 7px;
+    padding: 2%;
+    font-size: 1em;
+}
+
+.error {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px;
+}
+
+.checkboxGroup {
+    display: flex;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.checkboxGroup input {
+    margin-right: 2%;
+}
+
+.checkboxGroup label {
+    font-size: 0.8em;
+}
+
+.checkboxGroup a {
+    color: #28a263;
+    text-decoration: none;
+}
+
+.submitButton {
+    width: 90%;
+    height: 5vh;
+    border-radius: 20px;
+    margin-top: 2%;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    background-color: rgb(173, 169, 169);
+}
+
+.activeButton {
+    background-color: #28a263;
+}
+
+.inactiveButton {
+    background-color: rgb(173, 169, 169);
+}
+
+.footerText {
+    color: rgb(147, 137, 137);
+    font-size: 0.8em;
+    margin-top: 1em;
+}
+
+.footerText a {
+    color: rgb(147, 137, 137);
+    text-decoration: none;
+}
+
+.desktopLogo {
+    margin-top: 3%;
+    margin-left: 3%;
+    width: 15%;
+    height: 7%;
+}
+
+.mobileLogo {
+    margin-top: 3%;
+    margin-left: 3%;
+    width: 27%;
+    height: 7%;
+}
+
+@media (max-width: 456px) {
+    .container {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+        padding: 2%;
+    }
+
+    .c1 {
+        width: 100%;
+        height: 100%;
+    }
+
+    .c2 {
+        display: none; /* Hide the banner on mobile */
+    }
+
+    .formDiv {
+        width: 100%;
+        height: 85%;
+        margin: 2% auto 2% 2%;
+    }
+
+    .formDiv h1 {
+        font-size: 1.6em;
+    }
+
+    .inputGroup input {
+        height: 5vh;
+    }
+
+    .submitButton {
+        height: 6vh;
+        margin-left: 0%;
+    }
+}

@@ -1,0 +1,336 @@
+@media (max-width:1025px){
+  
+  .menu p{
+    font-size: 0.8em;
+  }
+    
+}
+@media (min-width: 427px){
+
+
+  .dashboard-container {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      font-family: Poppins;
+      
+    }
+    
+    .ch1 {
+      width: 20%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 2%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    }
+    
+    .menu {
+      display: flex;
+      width: 100%;
+      height: 10%;
+      color: #676767;
+      align-items: center;
+      column-gap: 5%;
+      padding-left: 17%;
+      font-size: 1.5em;
+      margin-top: 5%;
+      cursor: pointer;
+    }
+    
+    .menu img {
+      width: 10%;
+      height: 35%;
+      filter: grayscale(100%) drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+      opacity: 0.8; /* Adjust opacity if needed */
+      transition: filter 0.3s ease; /* Smooth transition for filter */
+    }
+    
+    /* Active Menu Styling */
+    .menu.active {
+      background-color: #f0f0f0; /* Light background for active menu */
+    }
+    
+    .menu.active p {
+      color: #1877F2; /* Green text for active menu */
+    }
+    
+    .menu.active img {
+      filter: brightness(0) saturate(100%) invert(16%) sepia(90%) saturate(3000%) hue-rotate(200deg) brightness(90%) contrast(110%);
+    }
+    
+    .username {
+      border: 2px solid black;
+      display: flex;
+      width: 80%;
+      height: 10%;
+      margin-top: 25%;
+      align-items: center;
+      justify-content: flex-start;
+      background-color: white;
+      border-radius: 40px;
+      cursor: pointer;
+      font-style: italic;
+      font-weight: 500;
+    }
+    
+    .username img{
+      width: 70%;
+      height: 70%;
+      background: transparent;
+      margin-left: 5%;
+    }
+    .img1{
+      width: 25%;
+      height: 85%;
+      background: transparent;
+      margin-left: 5%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+
+
+    }
+    
+    .signout {
+      display: flex;
+      width: 10%;
+      height: 10%;
+      flex-direction: row;
+      align-items: center;
+      column-gap: 5%;
+      background-color: #f3f3f1;
+      color: #676767;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 30px;
+      font-size: 1em;
+      position: absolute;
+      top: 70%;
+      cursor: pointer;
+    }
+    
+    .signout img {
+      width: 15%;
+      height: 35%;
+      background: transparent;
+      margin-left: 5%;
+    }
+    
+    /* Popup Overlay */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000; /* Ensure it's on top of other content */
+    }
+    
+    /* Popup Content */
+    .popup-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    
+    /* Popup Buttons */
+    .popup-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px; /* Space between buttons */
+      margin-top: 20px;
+    }
+    
+    .popup-button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    
+    .popup-button.yes {
+      background: #ff4d4d; /* Red for "Yes" */
+      color: white;
+    }
+    
+    .popup-button.no {
+      background: #f0f0f0; /* Light gray for "No" */
+      color: #333;
+    }
+    
+    /* ch2 Section */
+    .ch2 {
+      flex: 1; /* Take up remaining space */
+      padding: 20px;
+      overflow-y: auto; /* Add scroll if content overflows */
+      background-color: #f0f0f0; /* Light background */
+      border-left: 1px solid #e0e0e0; /* Separator line */
+      
+    }
+}
+  @media (max-width: 456px) {
+    body{
+      overflow: hidden;
+    }
+    .head-container1{
+      width: 100%;
+      height: 7vh;
+      display: flex;
+      justify-content: space-between;margin-top: 2%;
+  }
+  .head-container1 img{
+      width: 27%;
+      height: 65%;
+  }
+  .profile1{
+      width: 18%;
+      height: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background: #bfc3bb;
+      z-index: 1000;
+  }
+  .profile1 img{
+      width: 60%;
+      height: 60%;
+  
+  }
+    .dashboard-container {
+      overflow: hidden;
+      display: flex;
+     flex-direction: column;
+      width: 100dvw;
+      height: 100dvh;
+      font-family: Poppins;
+      padding: 1%;
+    }
+    .ch2{
+      overflow-x: hidden;
+      height: 70em;
+      max-height: 70em;
+      padding: 3%;
+    }
+    .ch1{
+      width: 100%;
+      height: 25%;
+  
+      display: flex;
+      flex-direction: row;
+      
+    }
+   .menu{
+    width: 25%;
+    height: 100%;
+    font-size: 0.9em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+   }
+   .menu img{
+    width: 25%;
+    height: 35%;
+    filter: grayscale(100%) drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+      opacity: 0.8; /* Adjust opacity if needed */
+      transition: filter 0.3s ease; /* Smooth transition for filter */
+   }
+   .menu.active {
+    background-color: #f0f0f0; /* Light background for active menu */
+  }
+  
+  .menu.active p {
+    color: #28a263; /* Green text for active menu */
+  }
+  
+  .menu.active img {
+    filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(384%) hue-rotate(87deg) brightness(95%) contrast(91%);
+    /* Converts the image to #28A263 */
+  }
+  .signout {
+    display: flex;
+    width: 30%;
+    height: 8%;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 5%;
+    background-color: #f3f3f1;
+    color: #676767;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    font-size: 0.9em;
+    position: absolute;
+    top: 3%;
+    left: 53%;
+    cursor: pointer;
+    z-index: 3000;
+  }
+  
+  .signout img {
+    width: 10%;
+    height: 30%;
+    background: transparent;
+    margin-left: 5%;
+  }
+  
+  /* Popup Overlay */
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top of other content */
+  }
+  
+  /* Popup Content */
+  .popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  /* Popup Buttons */
+  .popup-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between buttons */
+    margin-top: 20px;
+  }
+  
+  .popup-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .popup-button.yes {
+    background: #ff4d4d; /* Red for "Yes" */
+    color: white;
+  }
+  
+  .popup-button.no {
+    background: #f0f0f0; /* Light gray for "No" */
+    color: #333;
+  }
+  
+  }

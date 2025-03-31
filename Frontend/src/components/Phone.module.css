@@ -1,0 +1,573 @@
+.phone-container {
+    width: 425px;
+    height: 642px;
+    border: 1rem solid black;
+    padding: 2%;
+    border-radius: 40px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2%;
+}
+.poppins-font{
+    font-family: 'Poppins', sans-serif;
+}
+.roboto-font{
+    font-family: 'Roboto', sans-serif;
+}
+.open-sans-font{
+    font-family: 'Open Sans', sans-serif;
+}
+.lato-font{
+    font-family: 'Lato', sans-serif;
+}
+.montserrat-fon{
+    font-family: 'Montserrat', sans-serif;
+}
+.profile-info{
+    width: 100%;
+height: 30%;
+padding: 2%;
+display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 21px 21px 35px 35px;
+}
+.profile-info p{
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    
+}
+.share-btn{
+    width: 10%;
+    height: 22%;
+    z-index: 1000;
+    background-color: #F6F7F5;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    align-self: flex-start;
+}
+.share-btn img{
+    width: 60%;
+    height: 60%;
+}
+.profile-photo{
+    
+    width: 22%;
+    height: 40%;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile-photo img{
+width: 75%;
+    height: 70%;
+    border: none;
+}
+
+
+.button-contain{
+    margin-top: 4%;
+    width: 70%;
+    height: 8%;
+    border-radius: 25px;
+}
+.button-contain button{
+    width: 50%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    padding: 3%;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 25px;
+}
+.link-item-contain {
+    width: 100%;
+    height: 48%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 48%; /* Ensure it doesn't grow indefinitely */
+    scrollbar-width: thin; /* Optional: Style scrollbar for better appearance */
+}
+
+.link-item-div {
+    width: 90%;
+    min-height: 30%; /* Prevent excessive height */
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    padding: 0.5%;
+    background-color: #C9C9C9;
+    cursor: pointer;
+    margin-top: 2%;
+}
+
+.icon-link{
+    width: 22%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: white;
+}
+.icon-link img{
+width: 55%;
+height: 45%;
+}
+.link-text{
+    width: 75%;
+    height: 100%;
+    background: transparent;
+    color: white;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+
+}
+.link-text p{
+    margin-left: 4%;
+}
+
+.link-item-grid {
+    width: 100%;
+    height: 48%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: row;
+    row-gap: -1%;
+    flex-wrap: wrap;
+    max-height: 48%; /* Ensure it doesn't grow indefinitely */
+    scrollbar-width: thin; /* Optional: Style scrollbar for better appearance */
+    row-gap: 1%;
+    justify-content: space-evenly;
+}
+
+.link-item-div-grid {
+    width: 30%;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    padding: 0.5%;
+    background-color: #C9C9C9;
+    cursor: pointer;
+    margin-top: 2%;
+}
+
+.icon-link-grid{
+    width: 95%;
+    height: 6em;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: white;
+    margin-top: -3%;
+}
+.icon-link-grid img{
+width: 35%;
+height: 60%;
+}
+.link-text-grid{
+    width: 60%;
+    height: 100%;
+    background: transparent;
+    color: white;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.link-text-grid p{
+    margin-left: 10%;
+    font-size: 0.9em;
+
+}
+.link-item-carousel {
+    width: 100%;
+    height: 48%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    column-gap: 3%;
+    max-height: 48%; /* Ensure it doesn't grow indefinitely */
+    scrollbar-width: thin; /* Optional: Style scrollbar for better appearance */
+}
+
+.link-item-div-carousel {
+    min-width: 10em;
+    min-height: 30%; /* Prevent excessive height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    border-radius: 12px;
+    padding: 0.5%;
+    background-color: #C9C9C9;
+    cursor: pointer;
+    margin-top: 2%;
+    
+}
+
+.icon-link-carousel{
+    width: 80%;
+    height: 50%;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: white;
+}
+.icon-link-carousel img{
+width: 55%;
+height: 50%;
+}
+.link-text-carousel{
+    width: 100%;
+    height: 30%;
+    background: transparent;
+    color: white;
+    font-size: 1.3em;
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.get-connected{
+    width: 30%;
+    height: 6%;
+    background-color: #28A263;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 2%;
+    position: relative;
+    cursor: pointer;
+}
+.logo-mobile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 6%;
+    font-weight: bold;
+    position: relative;
+
+}
+.logo-mobile img {
+    filter: brightness(0); /* Reduce brightness (0 = black, 1 = normal) */
+}
+@media (max-width:1025px){
+
+     .get-connected{
+        width: 45%;
+        height: 6%;
+        background-color: #28A263;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        padding: 2%;
+        position: relative;
+        cursor: pointer;
+    }
+}
+@media (max-width:456px){
+    .phone-container {
+        width: 100%;
+        height: 100%;
+        border: none;
+        padding: 2%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 2%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: #F6F7F5;
+        border: 2px solid;
+        z-index: 1001;
+        border-radius: 0%;
+    }
+    
+    .profile-info{
+        width: 90%;
+    height: 30%;
+    padding: 2%;
+    display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 35px;
+        position: relative;
+        top: 3%;
+    }
+    .profile-info p{
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    .share-btn{
+        width: 10%;
+        height: 22%;
+        z-index: 1000;
+        background-color: #F6F7F5;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        align-self: flex-start;
+    }
+    .share-btn img{
+        width: 60%;
+        height: 60%;
+    }
+    .profile-photo{
+        
+        width: 22%;
+        height: 40%;
+        border-radius: 50%;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .profile-photo img{
+    width: 75%;
+        height: 70%;
+        border: none;
+    }
+    
+    
+    .button-contain{
+        margin-top: 4%;
+        width: 70%;
+        height: 8%;
+        border-radius: 25px;
+    }
+    .button-contain button{
+        width: 50%;
+        height: 100%;
+        border: none;
+        background: transparent;
+        padding: 3%;
+        font-size: 1.1em;
+        cursor: pointer;
+        border-radius: 25px;
+    }
+    .link-item-contain {
+        width: 100%;
+        height: 48%;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-height: 48%; /* Ensure it doesn't grow indefinitely */
+        scrollbar-width: thin; /* Optional: Style scrollbar for better appearance */
+    }
+    
+    .link-item-div {
+        width: 90%;
+        min-height: 30%; /* Prevent excessive height */
+        display: flex;
+        align-items: center;
+        border-radius: 30px;
+        padding: 0.5%;
+        background-color: #C9C9C9;
+        cursor: pointer;
+        margin-top: 2%;
+    }
+    
+    .icon-link{
+        width: 22%;
+        height: 100%;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        background: white;
+    }
+    .icon-link img{
+    width: 55%;
+    height: 45%;
+    }
+    .link-text{
+        width: 75%;
+        height: 100%;
+        background: transparent;
+        color: white;
+        font-size: 1.1em;
+        display: flex;
+        align-items: center;
+    
+    }
+    .link-text p{
+        margin-left: 4%;
+    }
+    
+    .link-item-grid {
+        width: 100%;
+        height: 48%;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: row;
+        row-gap: -1%;
+        flex-wrap: wrap;
+        max-height: 48%; /* Ensure it doesn't grow indefinitely */
+        scrollbar-width: thin; /* Optional: Style scrollbar for better appearance */
+        row-gap: 1%;
+        justify-content: space-evenly;
+    }
+    
+    .link-item-div-grid {
+        width: 30%;
+        height: 45%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+        padding: 0.5%;
+        background-color: #C9C9C9;
+        cursor: pointer;
+        margin-top: 2%;
+    }
+    
+    .icon-link-grid{
+        width: 95%;
+        height: 6em;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        background: white;
+        margin-top: -3%;
+    }
+    .icon-link-grid img{
+    width: 35%;
+    height: 60%;
+    }
+    .link-text-grid{
+        width: 60%;
+        height: 100%;
+        background: transparent;
+        color: white;
+        font-size: 1.1em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    .link-text-grid p{
+        margin-left: 10%;
+        font-size: 0.9em;
+    
+    }
+    .link-item-carousel {
+        width: 100%;
+        height: 48%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        display: flex;
+        column-gap: 3%;
+        max-height: 48%; /* Ensure it doesn't grow indefinitely */
+        scrollbar-width: thin; /* Optional: Style scrollbar for better appearance */
+    }
+    
+    .link-item-div-carousel {
+        min-width: 10em;
+        min-height: 30%; /* Prevent excessive height */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        border-radius: 12px;
+        padding: 0.5%;
+        background-color: #C9C9C9;
+        cursor: pointer;
+        margin-top: 2%;
+        
+    }
+    
+    .icon-link-carousel{
+        width: 80%;
+        height: 50%;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        background: white;
+    }
+    .icon-link-carousel img{
+    width: 55%;
+    height: 50%;
+    }
+    .link-text-carousel{
+        width: 100%;
+        height: 30%;
+        background: transparent;
+        color: white;
+        font-size: 1.3em;
+        display: flex;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    
+    
+    .get-connected{
+        width: 40%;
+        height: 6%;
+        background-color: #28A263;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        padding: 2%;
+        position: relative;
+        cursor: pointer;
+    }
+    .logo-mobile{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30%;
+        height: 6%;
+        font-weight: bold;
+        position: relative;
+    
+    }
+    .logo-mobile img {
+        filter: brightness(0); /* Reduce brightness (0 = black, 1 = normal) */
+    }
+}

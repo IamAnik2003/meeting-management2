@@ -1,0 +1,115 @@
+
+.logincontainer{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    font-family: Poppins;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.cc1{
+    width: 65%;
+    height: 100%;
+}
+.cc1 h1{
+    font-size: 2em;
+    text-align: left;
+    margin-left: 4%;
+}
+.cc2{
+    width: 35%;
+    height: 100%;
+    overflow: hidden;
+}
+.formdiv1{
+    /* border: 2px solid black; */
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 55%;
+    height: 75%;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-top: 5%;
+}
+.form-grp1{
+    display: flex;
+    flex-direction: column;
+    margin-top:2em;
+    row-gap: 1em;
+}
+.form-grp1 input{
+    width:90%;
+    height: 5vh;
+    background-color: #EFF0EC;
+    border-radius: 7px;
+    padding: 2%;
+    border: none;
+    margin-left: 4%;
+}
+.error1{
+    
+        color: red;
+        font-size: 0.8em;
+        margin-top: 5px;
+        margin-left: 4%;
+      
+}
+@media (max-width: 456px) {
+    .logincontainer{
+        height: 100vh;
+        width: 100vw;
+        padding: 2%;
+        overflow: hidden;
+    }
+    .cc1{
+        width: 100%;
+        height: 100%;
+    }
+    .cc1 h1{
+        font-size: 1.5em;
+        width: 100%;
+        text-align: left;
+        margin-left: 4%;
+        
+    }
+    
+    .formdiv1{
+        /* border: 2px solid black; */
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        padding-left: 3%;
+        padding-right: 3%;
+        margin-top: 5%;
+    }
+    .form-grp1{
+        display: flex;
+        flex-direction: column;
+        margin-top:2em;
+        row-gap: 1em;
+    }
+    .form-grp1 input{
+        width:95%;
+        height: 6vh;
+        background-color: #EFF0EC;
+        border-radius: 7px;
+        padding: 2%;
+        border: none;
+        margin-left: 4%;
+    }
+    .error1{
+        
+            color: red;
+            font-size: 0.8em;
+            margin-top: 5px;
+            margin-left: 4%;
+          
+    }
+
+}

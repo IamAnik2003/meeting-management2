@@ -1,0 +1,348 @@
+/* Original Styles for DiolougeBox */
+
+.diolouge {
+  width: 75%;
+  height: 80%;
+  margin: 0 auto;
+  position: absolute;
+  top: 18%;
+  left: 23%;
+  padding: 1%;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  font-family: Poppins;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 3%;
+  overflow: hidden;
+}
+.diolouge h3{
+  
+  color: #1877F2;
+  text-align: center;
+margin-top: 2%;
+font-size: 1.5em;
+}
+form{
+  width: 100%;
+  height: 100%;
+}
+.firstparent{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 47%;
+  align-items: center;
+}
+.secondparent{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 47%;
+  align-items: center;
+}
+.thirdparent{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 47%;
+  align-items: center;
+}
+.labelsContainer{
+width: 40%;
+height: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+row-gap: 10%;
+}
+.labelsContainer2{
+width: 40%;
+height: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+row-gap: 10%;
+margin-top: 2%;
+}
+.labelsContainer3{
+width: 40%;
+height: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+row-gap: 35%;
+margin-top: 9%;
+}
+label{
+  font-size: 1.2em;
+  text-align: center;
+}
+.inputsContainer{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5%;
+  height: 100%;
+}
+.inputsContainer2{
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 2%;
+  height: 100%;
+  margin-top: 2%;
+}
+.inputsContainer3{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10%;
+  height: 120%;
+  margin-top: 9%;
+}
+.date{
+  border: 2px solid #E0E0E0;
+  border-radius: 7px;
+  width: 25%;
+  height: 20%;
+
+}
+.time{
+  border: 2px solid #E0E0E0;
+  border-radius: 7px;
+  width: 18%;
+  height: 20%;
+}
+.ampm{
+  border: 2px solid #E0E0E0;
+  border-radius: 7px;
+  width: 15%;
+  height: 20%;
+}
+.timezone{
+  border: 2px solid #E0E0E0;
+  border-radius: 7px;
+  width: 36%;
+  height: 20%;
+}
+.duration{
+  border: 2px solid #E0E0E0;
+  border-radius: 7px;
+  width: 39%;
+  height: 20%;
+  margin-top: -17%;
+}
+.inputs{
+  
+  border: 1px solid #B6B6B6;
+  border-radius: 7px;
+  padding: 2%;
+  font-size: 1em;
+  height: 18%;
+}
+.inputs2{
+  
+  border: 1px solid #B6B6B6;
+  border-radius: 7px;
+  padding: 2%;
+  font-size: 1em;
+  height: 45%;
+  width: 140%;
+}
+textarea {
+  height: 55%;
+  border: 1px solid #B6B6B6;
+  border-radius: 7px;
+  padding: 2%;
+  font-size: 1em;
+  
+  /* Prevent horizontal scrolling */
+  overflow-x: hidden;
+  
+  /* Enable vertical scrolling */
+  overflow-y: auto;
+  
+  /* Optional: Ensure the textarea resizes vertically only */
+  resize: vertical;
+}
+.btncon{
+  width: 25%;
+  display: flex;
+  column-gap: 5%;
+  height: 20%;
+  margin-top: 13%;
+  margin-left: -10%;
+  
+}
+.btncon2{
+
+  display: flex;
+  column-gap: 5%;
+  height: 20%;
+  margin-top: 1%;
+  margin-left: 140%;
+  width: 60%;
+  height: 25%;
+}
+.save{
+  background: #1877F2;
+  color: white;
+  width: 50%;
+  height: 100%;
+  border: none;
+  border-radius: 20px;
+  padding: 1%;
+  font-size: 1em;
+}
+.save2{
+  background: #1877F2;
+  color: white;
+  width: 50%;
+  height: 100%;
+  border: none;
+  border-radius: 20px;
+  padding: 1%;
+  font-size: 1em;
+}
+.cancel{
+  background: #F3F3F1;
+  color: black;
+  width: 50%;
+  height: 100%;
+  border: none;
+  border-radius: 20px;
+  padding: 1%;
+  font-size: 1em;
+}
+.cancel2{
+  background: #F3F3F1;
+  color: black;
+  width: 50%;
+  height: 100%;
+  border: none;
+  border-radius: 20px;
+  padding: 1%;
+  font-size: 1em;
+}
+.bannerContainer{
+  width: 50%;
+  height: 40%;
+  border-radius: 25px;
+  padding:2%;
+  align-self: self-start;
+}
+.bannerContainer h3{
+  color:white;
+  font-size: 1.2em;
+}
+.banner{
+  width: 55%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1%;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1%;
+  border-radius: 10px;
+  color: white;
+}
+.profileOnBanner{
+  background-color: #D9D9D9;
+    width: 22%;
+    height: 40%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner p{
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.banner div img{
+  width: 80%;
+  height: 80%;
+}
+.colorDiv{
+  
+  margin-top: 2%;
+  width: 35%;
+  height: 20%;
+  
+}
+.colors{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80%;
+  width: 100%;
+  margin-top: 4%;
+  
+}
+.colorCircle{
+    
+  width: 25%;
+  height: 150%;
+  border-radius: 50%;
+}
+.colorPic1{
+background-color: #EF6500;
+}
+.colorPic2{
+background-color: white;
+border: 2px solid #A8AAA2;
+}
+.colorPic3{
+background-color: black;
+}
+.colorPickerContainer{
+  display: flex;
+  width: 110%;
+  height: 45%;
+  column-gap: 4%;
+  margin-top: 10%;
+
+}
+.demoColorDiv{
+  width: 30%;
+  height: 300%;
+  border-radius: 7px;
+}
+.colorPicker{
+  background: #F3F3F1;
+  width: 80%;
+  height: 300%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding-left: 3%;
+}
+.colorPicker p{
+  font-size: 1em;
+  font-weight: 500;
+}
+
+  @media (max-width: 456px) {
+
+    .diolouge {
+      width: 90%;
+      height: auto;
+      margin: 0 auto;
+      position: absolute;
+      top: 35%;
+      left: 5%;
+      padding: 2%;
+      z-index: 1000;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 25px;
+    }
+  }
