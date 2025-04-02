@@ -3,11 +3,14 @@ import axios from "axios";
 import styles from "../components/DiolougeBox.module.css";
 import avatar from "../assets/avater.png";
 import toast from "react-hot-toast";
+import useIsMobile from "../components/useIsMobile";
+
 
 export default function DiolougeBox({ setIsDiolougeOpen, editingEvent }) {
   const userEmail = localStorage.getItem("email");
   const userId = localStorage.getItem("userID");
   const VITE_BACK_URL = import.meta.env.VITE_BACK_URL;
+  const isMobile = useIsMobile();
   
   const [userAvailability, setUserAvailability] = useState(null);
   const [isCheckingAvailability, setIsCheckingAvailability] = useState(false);
@@ -298,7 +301,7 @@ export default function DiolougeBox({ setIsDiolougeOpen, editingEvent }) {
               <input
                 placeholder="Password"
                 className={styles.inputs}
-                type="password"
+                type="text"
                 id="password"
                 name="password"
                 value={formData.password}
@@ -383,7 +386,7 @@ export default function DiolougeBox({ setIsDiolougeOpen, editingEvent }) {
                 <option value="3">3 hours</option>
               </select>
             </div>
-            <div className={styles.btncon}>
+            {!isMobile?(  <div style={{position:"absolute",top:"90%",left:"35%",display:"flex",width:"40%",height:"8%"}}>
               <button 
                 type="button"
                 className={styles.cancel} 
@@ -391,10 +394,29 @@ export default function DiolougeBox({ setIsDiolougeOpen, editingEvent }) {
               >
                 Cancel
               </button>
-              <button className={styles.save} type="submit">
-                Save
+              <button 
+                className={styles.save} 
+                type="submit"
+                disabled={isLoading}
+              >
+                {isLoading ? 'Saving...' : 'Save'}
               </button>
-            </div>
+            </div>):  <div style={{position:"absolute",top:"90%",left:"35%",display:"flex",width:"50%",height:"8%"}}>
+              <button 
+                type="button"
+                className={styles.cancel} 
+                onClick={() => setIsDiolougeOpen(false)}
+              >
+                Cancel
+              </button>
+              <button 
+                className={styles.save} 
+                type="submit"
+                disabled={isLoading}
+              >
+                {isLoading ? 'Saving...' : 'Save'}
+              </button>
+            </div>}
           </div>
         </form>
       ) : (
@@ -442,7 +464,7 @@ export default function DiolougeBox({ setIsDiolougeOpen, editingEvent }) {
             </div>
             
             <div className={styles.colorDiv}>
-              <p style={{ fontSize: "0.8em" }}>Custom Background Color</p>
+              <p style={{ fontSize: "0.8em",width:"100%"}}>Custom Background Color</p>
               <div className={styles.colors}>
                 <div
                   className={`${styles.colorCircle} ${styles.colorPic1}`}
@@ -520,8 +542,7 @@ export default function DiolougeBox({ setIsDiolougeOpen, editingEvent }) {
                 />
               </div>
             </div>
-            
-            <div className={styles.btncon2}>
+            {!isMobile?(  <div className={styles.btncon2}>
               <button 
                 type="button"
                 className={styles.cancel2} 
@@ -536,7 +557,23 @@ export default function DiolougeBox({ setIsDiolougeOpen, editingEvent }) {
               >
                 {isLoading ? 'Saving...' : 'Save'}
               </button>
-            </div>
+            </div>):  <div style={{position:"relative",top:"40%",left:"30%"}}>
+              <button 
+                type="button"
+                className={styles.cancel2} 
+                onClick={() => setIsDiolougeOpen(false)}
+              >
+                Cancel
+              </button>
+              <button 
+                className={styles.save2} 
+                type="submit"
+                disabled={isLoading}
+              >
+                {isLoading ? 'Saving...' : 'Save'}
+              </button>
+            </div>}
+          
           </div>
         </form>
       )}
