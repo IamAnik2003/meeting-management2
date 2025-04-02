@@ -1,0 +1,311 @@
+/* Analytics.css */
+.container {
+  width: 100%;
+  display: flex;
+  margin-top: 2%;
+  font-family: Poppins;
+  overflow: hidden;
+  }
+  .calenderView {
+    width: 79%;
+    height: 75%;
+    margin: 0 auto;
+    position: absolute;
+    top: 21%;
+    left: 20%;
+    padding: 0.3%;
+    background-color: white;
+    border: 2px solid #E0E2D9;
+    border-radius: 25px;
+    font-family: Poppins;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 3%;
+  }
+  .allCon{
+    width:100%;
+    height: 30%;
+    display: flex;
+    column-gap: 2%;
+  }
+  .searchCon{
+    background: #E8E8E8;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    margin-left: -3%;
+border-radius: 7px;
+
+
+    
+  }
+ 
+  .line{
+    width: 101%;
+    height: 1.4px;
+    background: #E0E2D9;
+    margin-top: -1%;
+    
+  }
+  .availability{
+    width: 35em;
+    height: 35em;
+    margin: 0 auto;
+    position: absolute;
+    top: 21%;
+    left: 23%;
+    padding: 0.3%;
+    background-color: white;
+    border: 2px solid #E0E2D9;
+    border-radius: 25px;
+    font-family: Poppins;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 3%;
+    /* display: none; */
+  }
+  h4{
+    width: 100%;
+    padding-left: 3%;
+    font-size: 1em;
+    
+  }
+  .availableCon{
+    width: 100%;
+    overflow-x: hidden;
+    height: 72%;
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+    padding-top: 0%;
+    margin-top: -2%;
+    row-gap: 2%;
+  }
+  .timingCon{
+    height: auto;
+    width: 100%;
+    display: flex;
+    column-gap: 1%;
+
+  }
+  .setTimingCon{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 2%;
+    align-items: center;
+   
+
+  }
+  .setFromTiming{
+    background: #F3F3F1;
+    border: 2px solid #E0E2D9;
+    width: 35%;
+    height: 3em;
+    border-radius: 5px;
+  }
+  .setToTiming{
+    background: #F3F3F1;
+    border: 2px solid #E0E2D9;
+    width: 35%;
+    height: 3em;
+    border-radius: 5px;
+    margin-top: 2%;
+  }
+  .tabs{
+    width: 20em;
+    height: 2.5em;
+    position: absolute;
+    top: 14%;
+    left: 23%;
+    background: #E8E8E8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5%;
+
+  }
+  .tab1 img{
+    height: 80%;
+    width: 25%;
+  }
+  .tab1{
+width: 50%;
+height: 85%;
+  display: flex;
+  align-items: center;
+  column-gap: 5%;
+  color:#676767;
+  font-size: 1em;
+  border-radius: 10px;
+  
+  }
+  .tab2{
+width: 60%;
+height: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 5%;
+  border-radius: 10px;
+  color:#676767;
+  font-size: 1em;
+  
+  }
+  .p1{
+    width: 100%;
+    height: 13%;
+    display: flex;
+  }
+  .activityCon{
+    width: 20%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    margin-left: 4%;
+  }
+  .activity{
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+  .eventType{
+    color: #1877F2;
+  }
+  .p11{
+    width: 100%;
+    height: 13%;
+    display: flex;
+    padding: 1%;
+  }
+  .activityCon1{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+  }
+  .activity1{
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  .eventType1{
+    color: #1877F2;
+  }
+  .activityCon2{
+    width: 40%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    margin-left: 4%;
+  }
+  .activity2{
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  .eventType2{
+    color: #1877F2;
+  }
+  .activeTab {
+    background-color: white !important;
+  }
+  @media (max-width: 456px) {
+    .container {
+      width: 100%;
+      height: 75%;
+      display: flex;
+      margin-top: 20%;
+      font-family: Poppins;
+      overflow: hidden;
+      }
+      .calenderView {
+        width: 95%;
+        height: 58%;
+        margin: 0 auto;
+        position: absolute;
+        top: 28%;
+        left: 2%;
+        padding: 0.3%;
+        background-color: white;
+        border: 2px solid #E0E2D9;
+        border-radius: 25px;
+        font-family: Poppins;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 3%;
+      }
+      .availability{
+        width: 95%;
+        left: 2%;
+        height: 58%;
+        top: 28%;
+      }
+      .activity1{
+        font-size: 0.9em;
+        font-weight: bold;
+      }
+      .activity1{
+        font-size: 1.1em;
+        font-weight: bold;
+      }
+      .eventType1{
+        color: #1877F2;
+      }
+      .activityCon2{
+        width: 60%;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        padding: 1%;
+        margin-left: 4%;
+
+      }
+      .activity2{
+        font-size: 0.9em;
+        font-weight: bold;
+      }
+      .eventType2{
+        color: #1877F2;
+      }
+      .activityCon1{
+        width: 30%;
+      }
+      .tabs{
+        top:20%;
+        left: 5%;
+      }
+      .availableCon{
+        font-size: 0.7em;
+      }
+      .activityCon{
+        font-size: 0.8em;
+      }
+      .activity{
+        width: 100%;
+      }
+      .activityCon{
+        width: 60%;
+      }
+      .allCon{
+        width:100%;
+        height: 50%;
+        display: flex;
+        column-gap: 2%;
+      }
+      .searchCon{
+        background: #E8E8E8;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        margin-left: -3%;
+    border-radius: 7px;
+    
+    
+        
+      }
+  }

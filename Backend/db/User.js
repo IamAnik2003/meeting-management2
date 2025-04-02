@@ -1,6 +1,23 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// Availability Timing Schema
+const TimingSchema = new Schema({
+  from: { type: String, required: true }, // Format: "HH:MM" (e.g., "09:00")
+  to: { type: String, required: true }    // Format: "HH:MM" (e.g., "17:00")
+}, { _id: false });
+
+// Day Availability Schema
+const DayAvailabilitySchema = new Schema({
+  day: { 
+    type: String, 
+    required: true,
+    enum: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+  },
+  available: { type: Boolean, default: false },
+  timings: [TimingSchema]
+}, { _id: false });
+
 // Participant Schema
 const ParticipantSchema = new Schema({
   email: { type: String, required: true },
@@ -60,7 +77,16 @@ const UserSchema = new Schema(
     bio: { type: String },
     category: { type: String },
     events: [EventSchema], // Events where user is host
-    participantEvents: [ParticipantEventSchema] // Events where user is participant
+    participantEvents: [ParticipantEventSchema], // Events where user is participant
+    // New availability fields
+    availability: {
+      timezone: { 
+        type: String, 
+        default: "Indian Time Standard" 
+      },
+      weeklyHours: [DayAvailabilitySchema],
+      lastUpdated: { type: Date }
+    }
   },
   { 
     timestamps: true,
@@ -79,5 +105,6 @@ UserSchema.index({ 'events.dateTime': 1 });
 UserSchema.index({ 'participantEvents.dateTime': 1 });
 UserSchema.index({ 'events.participants.email': 1 });
 UserSchema.index({ 'participantEvents.participants.email': 1 });
+UserSchema.index({ 'availability.weeklyHours.day': 1 });
 
 module.exports = mongoose.model("User", UserSchema);

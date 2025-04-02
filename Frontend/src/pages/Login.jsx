@@ -3,7 +3,9 @@ import axios from "axios";
 import useIsMobile from "../components/useIsMobile";
 import styles from "../pages/Login.module.css"; // Import the CSS module
 import img1 from "../assets/logo2.png";
-import img2 from "../assets/Frame (1).png";
+import i2 from "../assets/i2.png";
+import cnnct from "../assets/cnnct.png";
+
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast"; // For displaying error messages
 import { useNavigate } from "react-router-dom";
@@ -75,66 +77,7 @@ export default function Login() {
         const profileImage = response.data.profileImage;
         localStorage.setItem("profileImage", profileImage);
         localStorage.setItem("userID", userID);
-        if (!selectedFontColor) {
-          localStorage.setItem("selectedFontColor", "#FFFFFF");
-        } else {
-          localStorage.setItem("selectedFontColor", selectedFontColor);
-        }
-        if (!selectedFont) {
-          localStorage.setItem("selectedFont", "Poppins");
-        } else {
-          localStorage.setItem("selectedFont", selectedFont);
-        }
-        if (!selectedTheme) {
-          localStorage.setItem("selectedTheme", "air-snow");
-        } else {
-          localStorage.setItem("selectedTheme", selectedTheme);
-        }
-        if (!buttonFontColor) {
-          localStorage.setItem("buttonFontColor", "#000000");
-        } else {
-          localStorage.setItem("buttonFontColor", buttonFontColor);
-        }
-        if (!buttonColor) {
-          localStorage.setItem("buttonColor", "#C9C9C9");
-        } else {
-          localStorage.setItem("buttonColor", buttonColor);
-        }
-        if (!selectedButtonStyle) {
-          localStorage.setItem("selectedButtonStyle", "fill");
-        } else {
-          localStorage.setItem("selectedButtonStyle", selectedButtonStyle);
-        }
-        if (!selectedLayout) {
-          localStorage.setItem("selectedLayout", "stack");
-        } else {
-          localStorage.setItem("selectedLayout", selectedLayout);
-        }
-        if (!savedShopLinks) {
-          localStorage.setItem("savedShopLinks", JSON.stringify([]));
-        } else {
-          localStorage.setItem(
-            "savedShopLinks",
-            JSON.stringify(savedShopLinks)
-          );
-        }
-        if (!savedAddLinks) {
-          localStorage.setItem("savedAddLinks", JSON.stringify([]));
-        } else {
-          localStorage.setItem("savedAddLinks", JSON.stringify(savedAddLinks));
-        }
-        if (!bio) {
-          localStorage.setItem("bio", "Bio");
-        } else {
-          localStorage.setItem("bio", bio);
-        }
-
         localStorage.setItem("email", email);
-        if (!selectedColor) {
-          localStorage.setItem("selectedColor", "#342B26");
-        } else {
-          localStorage.setItem("selectedColor", selectedColor);
-        }
         localStorage.setItem("username", username);
         localStorage.setItem("token", token);
         if (!username) {
@@ -171,7 +114,7 @@ export default function Login() {
               marginLeft: "3%",
               width: "30%",
               height: "7%",}}
-            src={img1}
+            src={cnnct}
             alt="img"
           />
           <div className={styles.formdiv1}>
@@ -195,7 +138,7 @@ export default function Login() {
 
               <button
                 style={{
-                  backgroundColor: isFormValid ? "#28A263" : "#E0E2D9", // Dynamic background color
+                  backgroundColor: isFormValid ? "#1877F2" : "#E0E2D9", // Dynamic background color
                   color: isFormValid ? "white" : "#A8AAA2", // Dynamic text color
                   border: "none",
                   width: "90%",
@@ -210,7 +153,7 @@ export default function Login() {
               </button>
               <p style={{ alignSelf: "center" }}>
                 Don't have an account?{" "}
-                <Link style={{ color: "#28A263" }} to="/register">
+                <Link style={{ color: "#1877F2" }} to="/register">
                   Sign up
                 </Link>
               </p>
@@ -246,7 +189,7 @@ export default function Login() {
         </div>
         {!isMobile && (
           <div className={styles.cc2}>
-            <img src={img2} style={{ width: "100%", height: "100%" }} alt="" />
+            <img src={i2} style={{ width: "100%", height: "100%" }} alt="" />
           </div>
         )}
       </div>

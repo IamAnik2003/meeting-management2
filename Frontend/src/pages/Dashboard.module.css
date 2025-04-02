@@ -10,8 +10,8 @@
 
   .dashboard-container {
       display: flex;
-      width: 100vw;
-      height: 100vh;
+      width: 100dvw;
+      height: 100dvh;
       font-family: Poppins;
       
     }
@@ -239,25 +239,27 @@
     justify-content: center;
     background: transparent;
    }
-   .menu img{
-    width: 25%;
-    height: 35%;
-    filter: grayscale(100%) drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
-      opacity: 0.8; /* Adjust opacity if needed */
-      transition: filter 0.3s ease; /* Smooth transition for filter */
+   .menu img {
+     width: 30%;
+     height: 35%;
+     filter: grayscale(100%) drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+     opacity: 0.8; /* Adjust opacity if needed */
+     transition: filter 0.3s ease; /* Smooth transition for filter */
    }
+   
+   /* Active Menu Styling */
    .menu.active {
-    background-color: #f0f0f0; /* Light background for active menu */
-  }
-  
-  .menu.active p {
-    color: #28a263; /* Green text for active menu */
-  }
-  
-  .menu.active img {
-    filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(384%) hue-rotate(87deg) brightness(95%) contrast(91%);
-    /* Converts the image to #28A263 */
-  }
+     background-color: #f0f0f0; /* Light background for active menu */
+   }
+   
+   .menu.active p {
+     color: #1877F2; /* Green text for active menu */
+   }
+   
+   .menu.active img {
+     filter: brightness(0) saturate(100%) invert(16%) sepia(90%) saturate(3000%) hue-rotate(200deg) brightness(90%) contrast(110%);
+   }
+   
   .signout {
     display: flex;
     width: 30%;

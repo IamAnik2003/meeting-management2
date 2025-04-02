@@ -353,7 +353,6 @@ if (allParticipantEvents.length > 0) {
 }
     // 4. Get the updated participantEvents from the user document
     const updatedUser = await User.findById(userId);
-    console.log(updatedUser.participantEvents)
     
     res.status(200).json({
       hostedEvents,
@@ -628,7 +627,7 @@ app.get('/api/users/by-email', async (req, res) => {
 
 // In your user routes file
 app.patch('/api/users/:userId/categorized-events',async (req, res) => {
-  console.log("hit")
+  
   try {
     const { upcoming, pending, canceled, past } = await  req.body;
     
@@ -656,6 +655,91 @@ app.patch('/api/users/:userId/categorized-events',async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+app.put('/api/users/:userId/availability', async (req, res) => {
+  
+  try {
+    const { weeklyHours, timezone } = req.body;
+
+    // Validate data
+    if (!weeklyHours || !Array.isArray(weeklyHours)) {
+      console.log("Validation failed: weeklyHours is not an array");
+      return res.status(400).json({ error: 'Invalid data format: weeklyHours must be an array' });
+    }
+
+    // Additional validation for weeklyHours
+    for (const dayData of weeklyHours) {
+      if (!dayData.day || !['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].includes(dayData.day)) {
+        console.log("Validation failed: Invalid day", dayData);
+        return res.status(400).json({ error: `Invalid day: ${dayData.day}` });
+      }
+      if (typeof dayData.available !== 'boolean') {
+        console.log("Validation failed: available must be a boolean", dayData);
+        return res.status(400).json({ error: `Invalid available value for ${dayData.day}: must be a boolean` });
+      }
+      if (!Array.isArray(dayData.timings)) {
+        console.log("Validation failed: timings must be an array", dayData);
+        return res.status(400).json({ error: `Invalid timings for ${dayData.day}: must be an array` });
+      }
+      for (const timing of dayData.timings) {
+        if (!timing.from || !timing.to) {
+          console.log("Validation failed: timing missing from/to", timing);
+          return res.status(400).json({ error: `Invalid timing for ${dayData.day}: from and to are required` });
+        }
+      }
+    }
+
+    // Ensure the availability field exists
+    const user = await User.findById(req.params.userId);
+    if (!user) {
+      console.log("User not found:", req.params.userId);
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    if (!user.availability) {
+      user.availability = { weeklyHours: [], timezone: 'Indian Time Standard' };
+    }
+
+    const updatedUser = await User.findByIdAndUpdate(
+      req.params.userId,
+      {
+        $set: {
+          'availability.weeklyHours': weeklyHours,
+          'availability.timezone': timezone || 'Indian Time Standard',
+          'availability.lastUpdated': new Date(),
+        },
+      },
+      { new: true, runValidators: true }
+    );
+
+    if (!updatedUser) {
+      console.log("User not found after update:", req.params.userId);
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    
+    res.json(updatedUser.availability);
+  } catch (error) {
+    console.error("Error updating availability:", error);
+    res.status(500).json({ error: 'Server error', details: error.message });
+  }
+});
+
+app.get('/api/users/:userId/availability', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.userId).select('availability');
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    
+    res.json(user.availability || { 
+      weeklyHours: [],
+      timezone: "Indian Time Standard"
+    });
+  } catch (error) {
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port http://localhost:${port}`);
 });

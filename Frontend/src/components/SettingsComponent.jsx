@@ -167,7 +167,7 @@ export default function SettingsComponent() {
 
           {/* Submit Button */}
           <button type="submit">
-            <p>Save Changes</p>
+            <p>Save</p>
           </button>
         </form>
       </div>

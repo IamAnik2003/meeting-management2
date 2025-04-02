@@ -530,13 +530,6 @@ export default function Booking() {
     }
   };
 
-  const tabPositions = {
-    Upcoming: "4%",
-    Pending: "16%",
-    Canceled: "27.5%",
-    Past: "37.5%",
-  };
-
   return (
     <>
       <div className={styles["appearence-container"]}>
@@ -547,6 +540,7 @@ export default function Booking() {
                 activeTab === "Upcoming" ? styles.active : ""
               }`}
               onClick={() => setActiveTab("Upcoming")}
+              style={activeTab === "Upcoming" ? { borderBottom: "2px solid #1877F2" } : {}}
             >
               Upcoming
             </div>
@@ -555,6 +549,7 @@ export default function Booking() {
                 activeTab === "Pending" ? styles.active : ""
               }`}
               onClick={() => setActiveTab("Pending")}
+              style={activeTab === "Pending" ? { borderBottom: "2px solid #1877F2" } : {}}
             >
               Pending
             </div>
@@ -563,6 +558,7 @@ export default function Booking() {
                 activeTab === "Canceled" ? styles.active : ""
               }`}
               onClick={() => setActiveTab("Canceled")}
+              style={activeTab === "Canceled" ? { borderBottom: "2px solid #1877F2" } : {}}
             >
               Canceled
             </div>
@@ -571,15 +567,12 @@ export default function Booking() {
                 activeTab === "Past" ? styles.active : ""
               }`}
               onClick={() => setActiveTab("Past")}
+              style={activeTab === "Past" ? { borderBottom: "2px solid #1877F2" } : {}}
             >
               Past
             </div>
           </div>
           <div style={{ width: "100%" }} className={styles.tabContent}>
-            <div
-              style={{ marginLeft: tabPositions[activeTab], height: "2px" }}
-              className={styles.activeMenu}
-            ></div>
             <div className={styles.line}></div>
             {renderTabContent()}
           </div>

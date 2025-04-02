@@ -8,9 +8,9 @@ import settings from "../assets/settings.png";
 import avater from "../assets/avater1.png";
 import signout from "../assets/signout.png";
 import { useNavigate } from "react-router-dom";
-import LinkComponent from "../components/Events";
-import AppearanceComponent from "../components/Booking";
-import AnalyticsComponent from "../components/AnalyticsComponent";
+import Events from "../components/Events";
+import Booking from "../components/Booking";
+import Availability from "../components/Availability";
 import SettingsComponent from "../components/SettingsComponent";
 import Header from "../components/Header";
 import useIsMobile from "../components/useIsMobile";
@@ -19,7 +19,7 @@ export default function Dashboard({ VITE_URL }) {
   const fullname = localStorage.getItem("fullname");
   const [showSignOut, setShowSignOut] = useState(false);
   const [showSignOutPopup, setShowSignOutPopup] = useState(false);
-  const [activeMenu, setActiveMenu] = useState("links");
+  const [activeMenu, setActiveMenu] = useState("events");
   const userID = localStorage.getItem("userID");
   const isMobile = useIsMobile();
   const navigate = useNavigate();
@@ -66,6 +66,7 @@ export default function Dashboard({ VITE_URL }) {
     localStorage.removeItem("savedShopLinks");
     localStorage.removeItem("userID");
     localStorage.removeItem("profileImage");
+    localStorage.removeItem("availabilityData")
 
     navigate("/");
 
@@ -76,9 +77,9 @@ export default function Dashboard({ VITE_URL }) {
   // Render component based on active menu
   const renderComponent = () => {
     switch (activeMenu) {
-      case "links":
+      case "events":
         return (
-          <LinkComponent
+          <Events
             selectedColor={selectedColor}
             setSelectedColor={setSelectedColor}
             username={username}
@@ -96,9 +97,9 @@ export default function Dashboard({ VITE_URL }) {
             VITE_URL={VITE_URL}
           />
         );
-      case "appearance":
+      case "booking":
         return (
-          <AppearanceComponent
+          <Booking
             selectedColor={selectedColor}
             username={username}
             savedAddLinks={savedAddLinks}
@@ -108,12 +109,12 @@ export default function Dashboard({ VITE_URL }) {
             VITE_URL={VITE_URL}
           />
         );
-      case "analytics":
-        return <AnalyticsComponent />;
+      case "availability":
+        return <Availability />;
       case "settings":
         return <SettingsComponent />;
       default:
-        return <LinkComponent />;
+        return <Events />;
     }
   };
 
@@ -130,9 +131,9 @@ export default function Dashboard({ VITE_URL }) {
           {/* Links Menu */}
           <div
             className={`${styles["menu"]} ${
-              activeMenu === "links" ? styles["active"] : ""
+              activeMenu === "events" ? styles["active"] : ""
             }`}
-            onClick={() => setActiveMenu("links")}
+            onClick={() => setActiveMenu("events")}
           >
             <img src={events} alt="Links Icon" />
             <p>Events</p>
@@ -141,9 +142,9 @@ export default function Dashboard({ VITE_URL }) {
           {/* Appearance Menu */}
           <div
             className={`${styles["menu"]} ${
-              activeMenu === "appearance" ? styles["active"] : ""
+              activeMenu === "booking" ? styles["active"] : ""
             }`}
-            onClick={() => setActiveMenu("appearance")}
+            onClick={() => setActiveMenu("booking")}
           >
             <img src={booking} alt="Appearance Icon" />
             <p>Booking</p>
@@ -152,9 +153,9 @@ export default function Dashboard({ VITE_URL }) {
           {/* Analytics Menu */}
           <div
             className={`${styles["menu"]} ${
-              activeMenu === "analytics" ? styles["active"] : ""
+              activeMenu === "availability" ? styles["active"] : ""
             }`}
-            onClick={() => setActiveMenu("analytics")}
+            onClick={() => setActiveMenu("availability")}
           >
             <img src={availability} alt="Analytics Icon" />
             <p>Availability</p>
@@ -204,14 +205,15 @@ export default function Dashboard({ VITE_URL }) {
             />
           ) : (
             <div className={styles["head-container1"]}>
-              <img src={img1} alt="profile" />
+              <img  src={cnnct} alt="profile" />
               <div
-                onClick={() => setShowSignOut(!showSignOut)}
+               onClick={() => setShowSignOut(!showSignOut)}
                 style={{ height: "100%", width: "13%" }}
                 className={styles["profile1"]}
               >
-                <img src={profileImage} alt="profile" />
+                <img style={{height:"100%",width:"100%"}} src={avater} alt="profile" />
               </div>
+            
               {showSignOut && (
                 <div
                   onClick={() => setShowSignOutPopup(true)}
@@ -223,6 +225,7 @@ export default function Dashboard({ VITE_URL }) {
               )}
             </div>
           )}
+            {isMobile&& <Header fullname={fullname} VITE_URL={VITE_URL}   activeMenu={activeMenu}/>}
           {renderComponent()}
         </div>
       )}
@@ -261,7 +264,7 @@ export default function Dashboard({ VITE_URL }) {
           {!isMobile && (
             <img
               style={{ marginTop: "6%", alignSelf: "center" }}
-              src={img1}
+              src={cnnct}
               alt="Logo"
             />
           )}
@@ -269,34 +272,34 @@ export default function Dashboard({ VITE_URL }) {
           {/* Links Menu */}
           <div
             className={`${styles["menu"]} ${
-              activeMenu === "links" ? styles["active"] : ""
+              activeMenu === "events" ? styles["active"] : ""
             }`}
-            onClick={() => setActiveMenu("links")}
+            onClick={() => setActiveMenu("events")}
           >
-            <img src={links} alt="Links Icon" />
-            <p>Links</p>
+            <img src={events} alt="Links Icon" />
+            <p>Events</p>
           </div>
 
           {/* Appearance Menu */}
           <div
             className={`${styles["menu"]} ${
-              activeMenu === "appearance" ? styles["active"] : ""
+              activeMenu === "booking" ? styles["active"] : ""
             }`}
-            onClick={() => setActiveMenu("appearance")}
+            onClick={() => setActiveMenu("booking")}
           >
-            <img src={appearance} alt="Appearance Icon" />
-            <p>Appearance</p>
+            <img src={booking} alt="Appearance Icon" />
+            <p>Booking</p>
           </div>
 
           {/* Analytics Menu */}
           <div
             className={`${styles["menu"]} ${
-              activeMenu === "analytics" ? styles["active"] : ""
+              activeMenu === "availability" ? styles["active"] : ""
             }`}
-            onClick={() => setActiveMenu("analytics")}
+            onClick={() => setActiveMenu("availability")}
           >
-            <img src={analytics} alt="Analytics Icon" />
-            <p>Analytics</p>
+            <img src={availability} alt="Analytics Icon" />
+            <p>Availability</p>
           </div>
 
           {/* Settings Menu */}

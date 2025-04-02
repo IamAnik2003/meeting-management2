@@ -205,7 +205,7 @@ export default function Events() {
                     {formatTime(event.dateTime, event.duration)}
                   </div>
                   <div className={styles.description}>
-                    {event.duration}hr {event.description || "Meeting"}
+                    {event.duration}hr
                   </div>
                   <div
                     style={{

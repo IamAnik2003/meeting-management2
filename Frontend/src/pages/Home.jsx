@@ -175,15 +175,8 @@ export default function Home() {
                   alignItems: "center",
                   rowGap: "10%",
                   columnGap: "6%",
-                } : {
-                  width: "65vw",
-                  height: "15vh",
-                  display: "flex",
-                  flexWrap: "wrap",
-                  alignItems: "center",
-                  rowGap: "10%",
-                  columnGap: "6%",
-                }}
+                  
+                } : {display:"none"}}
               >
                 <div
                   style={{

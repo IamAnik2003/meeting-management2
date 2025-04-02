@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "../components/DiolougeBox.module.css";
 import avatar from "../assets/avater.png";
@@ -9,6 +9,25 @@ export default function DiolougeBox({ setIsDiolougeOpen, editingEvent }) {
   const userId = localStorage.getItem("userID");
   const VITE_BACK_URL = import.meta.env.VITE_BACK_URL;
   
+  const [userAvailability, setUserAvailability] = useState(null);
+  const [isCheckingAvailability, setIsCheckingAvailability] = useState(false);
+
+  // Fetch user availability on component mount
+  useEffect(() => {
+    const fetchAvailability = async () => {
+      try {
+        const response = await axios.get(`${VITE_BACK_URL}/api/users/${userId}/availability`);
+        setUserAvailability(response.data);
+      } catch (error) {
+        console.error("Error fetching availability:", error);
+      }
+    };
+
+    if (userId) {
+      fetchAvailability();
+    }
+  }, [userId, VITE_BACK_URL]);
+
   function formatTimeForInput(dateTime) {
     if (!dateTime) return "02:38";
     const date = new Date(dateTime);
@@ -63,8 +82,74 @@ export default function DiolougeBox({ setIsDiolougeOpen, editingEvent }) {
     setFormData(prev => ({ ...prev, teamName: e.target.value }));
   };
 
+  // Helper function to check if the selected date and time are in the past
+  const isDateTimeInPast = () => {
+    if (!formData.date || !formData.time) return false; // If date or time is not set, let other validations handle it
+
+    const [hours, minutes] = formData.time.split(':').map(Number);
+    let adjustedHours = hours;
+    if (formData.ampm === 'pm' && hours < 12) adjustedHours += 12;
+    if (formData.ampm === 'am' && hours === 12) adjustedHours = 0;
+
+    const selectedDateTime = new Date(formData.date);
+    selectedDateTime.setHours(adjustedHours, minutes, 0, 0);
+
+    const now = new Date();
+    return selectedDateTime < now;
+  };
+
+  const checkTimeSlotAvailability = () => {
+    if (!userAvailability || !userAvailability.weeklyHours || !formData.date || !formData.time) {
+      return true; // No availability data or incomplete form data
+    }
+
+    const selectedDate = new Date(formData.date);
+    const dayOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][selectedDate.getDay()];
+    const dayAvailability = userAvailability.weeklyHours.find(d => d.day === dayOfWeek);
+
+    if (!dayAvailability || !dayAvailability.available) {
+      return false;
+    }
+
+    const [hours, minutes] = formData.time.split(':').map(Number);
+    let startHour = hours;
+    if (formData.ampm === 'pm' && hours < 12) startHour += 12;
+    if (formData.ampm === 'am' && hours === 12) startHour = 0;
+
+    const endHour = startHour + parseInt(formData.duration);
+    const eventStartMinutes = startHour * 60 + minutes;
+    const eventEndMinutes = endHour * 60 + minutes;
+
+    // Check if any availability slot covers the event time
+    return dayAvailability.timings.some(timing => {
+      const [fromHour, fromMinute] = timing.from.split(':').map(Number);
+      const [toHour, toMinute] = timing.to.split(':').map(Number);
+      
+      const availableStart = fromHour * 60 + fromMinute;
+      const availableEnd = toHour * 60 + toMinute;
+
+      return eventStartMinutes >= availableStart && eventEndMinutes <= availableEnd;
+    });
+  };
+
   const handleSubmitSave1 = (e) => {
     e.preventDefault();
+    
+    // Validate that the date and time are not in the past
+    if (isDateTimeInPast()) {
+      toast.error("You cannot create or edit an event with a past date or time. Please select a future date and time.");
+      return;
+    }
+
+    // Check availability before proceeding to second form
+    if (userAvailability && formData.date && formData.time) {
+      const isAvailable = checkTimeSlotAvailability();
+      if (!isAvailable) {
+        toast.error("You're not available at the selected time. Please choose another time.");
+        return;
+      }
+    }
+    
     setOnFirstSave(true);
   };
 
@@ -75,6 +160,11 @@ export default function DiolougeBox({ setIsDiolougeOpen, editingEvent }) {
     try {
       if (!userId) throw new Error("User not authenticated");
       if (!userEmail) throw new Error("Host email not found");
+
+      // Validate that the date and time are not in the past
+      if (isDateTimeInPast()) {
+        throw new Error("You cannot create or edit an event with a past date or time. Please select a future date and time.");
+      }
 
       // Validate required fields
       const requiredFields = {
@@ -94,6 +184,11 @@ export default function DiolougeBox({ setIsDiolougeOpen, editingEvent }) {
         throw new Error(`Missing required fields: ${missingFields.join(', ')}`);
       }
 
+      // Final availability check before submission
+      if (userAvailability && !checkTimeSlotAvailability()) {
+        throw new Error("You're not available at the selected time. Please choose another time.");
+      }
+
       // Convert date and time to ISO format
       const [hours, minutes] = formData.time.split(':').map(Number);
       let adjustedHours = hours;
@@ -102,7 +197,7 @@ export default function DiolougeBox({ setIsDiolougeOpen, editingEvent }) {
       
       const isoDateTime = `${formData.date}T${adjustedHours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:00`;
 
-      // Process participant emails consistently for both create and update
+      // Process participant emails
       const allEmails = formData.emails
         .split(',')
         .map(email => email.trim())
@@ -114,7 +209,6 @@ export default function DiolougeBox({ setIsDiolougeOpen, editingEvent }) {
           return isValid;
         });
 
-      // Ensure host email is included (same logic for create and update)
       if (!allEmails.includes(userEmail)) {
         allEmails.unshift(userEmail);
       }
@@ -140,10 +234,8 @@ export default function DiolougeBox({ setIsDiolougeOpen, editingEvent }) {
         password: formData.password,
         teamName: formData.teamName,
         dateTime: isoDateTime,
-        createdBy: userId // Add this line
+        createdBy: userId
       };
-
-      console.log("Submitting event data:", eventData);
 
       const isUpdating = Boolean(editingEvent);
       const response = await axios({
